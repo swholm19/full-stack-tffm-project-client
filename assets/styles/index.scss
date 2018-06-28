@@ -1,2 +1,29 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+footer {
+  background-color: grey;
+  bottom: 0;
+  color: white;
+  height: 40px;
+  left: 0;
+  margin-top: 10px;
+  padding-top: 7px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+.menu {
+  background-color: grey;
+  border: 1px solid white;
+  color: white;
+  float: right;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+#menu-title {
+  display: inline;
+  font-size: 40px;
+}
