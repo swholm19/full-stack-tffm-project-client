@@ -8,6 +8,7 @@
 
 const authEvents = require('./auth/events')
 const userProfile = require('./user/events')
+const playerEvent = require('./players/events')
 
 $(() => {
   // Authentication Event Handlers
@@ -18,4 +19,5 @@ $(() => {
 
   // Action Event Handlers
   $('#manager-form').on('submit', userProfile.onSetUser)
+  $('#playerCreate-form').on('submit', playerEvent.onCreatePlayer)
 })

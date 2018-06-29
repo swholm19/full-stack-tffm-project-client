@@ -17,7 +17,6 @@ const showPlayers = function () {
 }
 
 const createPlayer = function (data) {
-  console.log('Create Player Data: ', data)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/players/',
@@ -29,7 +28,6 @@ const createPlayer = function (data) {
 }
 
 const updatePlayer = function (id, data) {
-  console.log('Update Player Data: ', data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/players/' + id,

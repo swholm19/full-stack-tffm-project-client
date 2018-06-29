@@ -59,12 +59,52 @@
           <div class='col-md-2 box'><h3>Team Players</h3></div>
           <div class='col-md-7 box'></div>
           <div class='col-md-2 box'>
-            <button class='content-button'>Update</button>
+            <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#managerModal">Update</button>
           </div>
         </div>
         <div class="row article settings3">
           <div class='col-md-1 box'></div>
           <div class='col-md-10 box' id='players-content'>
+            <ul>
+              <hr>
+              <li id='p1'>QB:
+                <button type="button" class="btn btn-primary player-button" data-toggle="modal" data-target="#playerCreateModal">Create</button>
+                <button type="button" class="btn btn-primary player-button" data-toggle="modal" data-target="#playerUpdateModal">Update</button>
+              </li>
+              <hr>
+              <li id='p2'>RB: </li>
+              <hr>
+              <li id='p3'>RB: </li>
+              <hr>
+              <li id='p4'>WR: </li>
+              <hr>
+              <li id='p5'>WR: </li>
+              <hr>
+              <li id='p6'>TE: </li>
+              <hr>
+              <li id='p7'>FLX: </li>
+              <hr>
+              <li id='p8'>D/ST: </li>
+              <hr>
+              <li id='p9'>K: </li>
+              <hr>
+              <li id='p10'>BE: </li>
+              <hr>
+              <li id='p11'>BE: </li>
+              <hr>
+              <li id='p12'>BE: </li>
+              <hr>
+              <li id='p13'>BE: </li>
+              <hr>
+              <li id='p14'>BE: </li>
+              <hr>
+              <li id='p15'>BE: </li>
+              <hr>
+              <li id='p16'>BE: </li>
+              <hr>
+              <li id='p17'>IR: </li>
+              <hr>
+            </ul>
           </div>
           <div class='col-md-1 box'></div>
         </div>
@@ -238,6 +278,41 @@
                   <input name='user[team_statement]' type="text" class="form-control" id="managerTeamStatment" placeholder="Enter: Team Statement">
                 </div>
                 <button type='submit'>Update</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="playerCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerCreateModalLabel">Create New Player</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id='playerCreate-form'>
+                <div class="form-group">
+                  <label for="playerName">Player Name</label>
+                  <input name='player[name]' type="text" class="form-control" id="playerCreateName" placeholder="Enter: Player Name">
+                </div>
+                <div class="form-group">
+                  <label for="playerPosition">Player Position</label>
+                  <input name='player[position]' type="text" class="form-control" id="playerCreatePosition" placeholder="Enter: Player Position">
+                </div>
+                <div class="form-group">
+                  <label for="playerKeeper">Player Keeper</label>
+                  <input name='player[keeper]' type="text" class="form-control" id="playerKeeper" placeholder="Enter: True or False">
+                </div>
+                <button type='submit'>Create</button>
               </form>
 
             </div>

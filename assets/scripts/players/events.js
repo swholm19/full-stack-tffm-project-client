@@ -11,9 +11,8 @@ const onIndexPlayer = function () {
 }
 
 const onShowPlayers = function () {
-  console.log('showing players')
   userApi.showPlayers()
-    .then(userUi.getPlayerSuccess)
+    .then(userUi.getPlayersSuccess)
 }
 
 const onCreatePlayer = function (event) {
