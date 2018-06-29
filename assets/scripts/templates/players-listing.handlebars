@@ -1,0 +1,10 @@
+{{#each players as |player|}}
+  <!-- {{log player}} -->
+
+ <ul data-player="{{player}}"><h4>{{player.name}}</h4>
+   <li><h6>Position:  {{player.position}}</h6></li>
+   <li><h6>Keeper:  {{player.keeper}} </h6></li>
+   <hr>
+</ul>
+
+{{/each}}

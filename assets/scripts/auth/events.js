@@ -3,6 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
 const userEvent = require('../user/events.js')
+const playerEvent = require('../players/events.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -18,6 +19,7 @@ const onSignIn = function (event) {
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .then(userEvent.onGetUser)
+    .then(playerEvent.onShowPlayers)
     .catch(authUi.signInError)
 }
 
