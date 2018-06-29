@@ -17,7 +17,7 @@ const getUserError = function (error) {
 
 const getUsersSuccess = function (response) {
   console.log(response)
-  $('#sign-in-form')[0].reset()
+  $('#manager-form')[0].reset()
   store.user = response.user
 }
 

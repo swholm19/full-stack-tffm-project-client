@@ -2,7 +2,6 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const userUi = require('./ui.js')
 const userApi = require('./api.js')
-const store = require('../store')
 
 const onGetUser = function () {
   userApi.getUser()

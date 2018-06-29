@@ -6,7 +6,6 @@ const getPlayersSuccessInitial = function (response) {
 }
 
 const getPlayersSuccessSelector = function (response) {
-  console.log('in here: ', response)
   const showPlayersHtml = showPlayersTemplate({ players: response.players })
   $('#all-players').append(showPlayersHtml)
 }
@@ -16,7 +15,6 @@ const getPlayerError = function (error) {
 }
 
 const getPlayerSuccess = function (response) {
-  console.log('response: ', response)
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
 }
 
