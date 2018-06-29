@@ -2,17 +2,25 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const userUi = require('./ui.js')
 const userApi = require('./api.js')
-// const store = require('../store')
+const store = require('../store')
 
-const onIndexPlayer = function () {
-  userApi.indexPlayer(5)
+const onIndexPlayer = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  store.rosterSpot = data.player.roster_position
+  userApi.indexPlayer(data)
     .then(userUi.getPlayerSuccess)
     .catch(userUi.getPlayerError)
 }
 
-const onShowPlayers = function () {
+const onShowPlayersInitial = function () {
   userApi.showPlayers()
-    .then(userUi.getPlayersSuccess)
+    .then(userUi.getPlayersSuccessInitial)
+}
+
+const onShowPlayersIndex = function () {
+  userApi.showPlayers()
+    .then(userUi.getPlayersSuccessSelector)
 }
 
 const onCreatePlayer = function (event) {
@@ -37,7 +45,8 @@ const onDeletePlayer = function () {
 
 module.exports = {
   onIndexPlayer,
-  onShowPlayers,
+  onShowPlayersInitial,
+  onShowPlayersIndex,
   onCreatePlayer,
   onUpdatePlayer,
   onDeletePlayer

@@ -21,4 +21,6 @@ $(() => {
   $('#manager-form').on('submit', userProfile.onSetUser)
   $('#playerCreate-form').on('submit', playerEvent.onCreatePlayer)
   $('#playerUpdate-form').on('submit', playerEvent.onUpdatePlayer)
+  $('#playerSelect-form').on('submit', playerEvent.onIndexPlayer)
+  $('#player-selector').on('click', playerEvent.onShowPlayersIndex)
 })

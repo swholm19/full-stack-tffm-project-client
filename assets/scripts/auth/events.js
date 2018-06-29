@@ -19,7 +19,7 @@ const onSignIn = function (event) {
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .then(userEvent.onGetUser)
-    .then(playerEvent.onShowPlayers)
+    .then(playerEvent.onShowPlayersInitial)
     .catch(authUi.signInError)
 }
 

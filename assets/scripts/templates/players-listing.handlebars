@@ -1,10 +1,9 @@
 {{#each players as |player|}}
   <!-- {{log player}} -->
 
- <ul data-player="{{player}}"><h4>{{player.name}}</h4>
-   <li><h6>Position:  {{player.position}}</h6></li>
-   <li><h6>Keeper:  {{player.keeper}} </h6></li>
-   <hr>
-</ul>
+<li>Player ID: {{player.id}} | Name: {{player.name}}, Position: {{player.position}},
+   Keeper:  {{player.keeper}}, Fantasy Owner: {{player.user_id}}</li>
+<hr>
+
 
 {{/each}}
