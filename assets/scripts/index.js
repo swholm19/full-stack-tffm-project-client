@@ -7,6 +7,7 @@
 // require('./example')
 
 const authEvents = require('./auth/events')
+const userProfile = require('./user/events')
 
 $(() => {
   // Authentication Event Handlers
@@ -16,4 +17,5 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
 
   // Action Event Handlers
+  $('#managerSetting').on('click', userProfile.onSetUser)
 })
