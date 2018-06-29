@@ -12,19 +12,21 @@ const getUser = function () {
   })
 }
 
-const getUsers = function (data) {
-  console.log('inside users data: ', data)
+const getUsers = function () {
   return $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: config.apiUrl + '/users',
-    data: data
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const setUser = function (data) {
+  console.log('Update User Data: ', data)
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/users',
+    url: config.apiUrl + '/users/' + store.user.id,
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token

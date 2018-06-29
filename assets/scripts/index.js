@@ -17,5 +17,5 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
 
   // Action Event Handlers
-  $('#managerSetting').on('click', userProfile.onSetUser)
+  $('#manager-form').on('submit', userProfile.onSetUser)
 })

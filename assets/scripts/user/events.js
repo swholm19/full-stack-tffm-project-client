@@ -12,7 +12,12 @@ const onGetUser = function () {
 
 const onSetUser = function (event) {
   event.preventDefault()
-  console.log('Set User Info')
+  console.log('inside set user...')
+  console.log('Set User Event: ', event)
+  const data = getFormFields(event.target)
+  console.log('got the data')
+  userApi.setUser(data)
+    .then(userUi.getUserSuccess)
 }
 
 module.exports = {
