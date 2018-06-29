@@ -7,12 +7,12 @@ const getUserSuccess = function (response) {
   $('#managerEmail').html(`Email: ${store.manager.email}`)
   $('#managerTeam').html(`Team Name: ${store.manager.team_name}`)
   $('#managerStatement').html(`Team Statement: ${store.manager.team_statement}`)
-  $('#sign-up-form')[0].reset()
+  $('#manager-form')[0].reset()
 }
 
 const getUserError = function (error) {
   console.log(error)
-  $('#sign-up-form')[0].reset()
+  $('#manager-form')[0].reset()
 }
 
 const getUsersSuccess = function (response) {
