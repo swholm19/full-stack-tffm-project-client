@@ -2,14 +2,12 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('it worked')
   $('#signUpModalLabel').html('You are Signed Up! Now you can Sign In! ', signUpResponse)
   $('#signUpModalLabel').css('color', 'green')
   $('#sign-up-form')[0].reset()
 }
 
 const signUpError = function (error) {
-  console.log('it broke: ', error)
   $('#signUpModalLabel').html('Error. Please Try Again ', error)
   $('#signUpModalLabel').css('color', 'red')
   $('#sign-up-form')[0].reset()
