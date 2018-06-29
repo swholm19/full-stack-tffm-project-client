@@ -27,10 +27,10 @@ const createPlayer = function (data) {
   })
 }
 
-const updatePlayer = function (id, data) {
+const updatePlayer = function (data) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/players/' + id,
+    url: config.apiUrl + '/players/' + data.player.ID,
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token

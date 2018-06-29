@@ -20,4 +20,5 @@ $(() => {
   // Action Event Handlers
   $('#manager-form').on('submit', userProfile.onSetUser)
   $('#playerCreate-form').on('submit', playerEvent.onCreatePlayer)
+  $('#playerUpdate-form').on('submit', playerEvent.onUpdatePlayer)
 })
