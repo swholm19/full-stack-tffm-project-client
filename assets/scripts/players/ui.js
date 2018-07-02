@@ -3,12 +3,19 @@ const store = require('../store')
 const showPlayersTemplate = require('../templates/players-listing.handlebars')
 const userApi = require('./api.js')
 
-const getPlayersSuccessInitial = function (response) {
+const getPlayersSuccessOnSignIn = function (response) {
+  response.players.forEach((player) => {
+    if (store.user.id === player.user_id) {
+      $(`#${player.roster_spot}`).empty()
+      $(`#${player.roster_spot}`).append(` ${player.name}, Keeper: ${player.keeper}`)
+    }
+  })
 }
 
 const getPlayersSuccessSelector = function (response) {
   $('#all-players').empty()
-  const showPlayersHtml = showPlayersTemplate({ players: response.players })
+  const yourPlayers = response.players.filter(player => store.user.id === player.user_id)
+  const showPlayersHtml = showPlayersTemplate({ players: yourPlayers })
   $('#all-players').append(showPlayersHtml)
 }
 
@@ -59,7 +66,7 @@ const updatePlayerError = function (error) {
 module.exports = {
   getPlayerSuccess,
   getPlayerErrorSelectModal,
-  getPlayersSuccessInitial,
+  getPlayersSuccessOnSignIn,
   getPlayersSuccessSelector,
   createPlayerSuccess,
   createPlayerError,
