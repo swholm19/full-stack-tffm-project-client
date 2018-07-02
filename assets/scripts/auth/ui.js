@@ -2,7 +2,6 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('here is the success: ', signUpResponse)
   $('#signUpModalLabel').html('You are Signed Up! Now you can Sign In! ', signUpResponse)
   $('#signUpModalLabel').css('color', 'green')
   $('#signUpModal').modal('hide')
@@ -11,7 +10,6 @@ const signUpSuccess = function (signUpResponse) {
 }
 
 const signUpError = function (error) {
-  console.log('here is the error: ', error)
   $('#signUpModalLabel').html('Error. Please Try Again ', error)
   $('#signUpModalLabel').css('color', 'red')
   $('#sign-up-form')[0].reset()
