@@ -7,7 +7,7 @@ const store = require('../store')
 const onIndexPlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  store.rosterSpot = data.player.roster_position
+  store.rosterSpot = data.player.roster_spot
   userApi.indexPlayer(data)
     .then(userUi.getPlayerSuccess)
     .catch(userUi.getPlayerErrorSelectModal)
@@ -35,7 +35,7 @@ const onCreatePlayer = function (event) {
 const onUpdatePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  userApi.updatePlayer(data)
+  userApi.updatePlayer(data.player.ID, data)
     .then(userUi.updatePlayerSuccess)
     .catch(userUi.updatePlayerError)
 }

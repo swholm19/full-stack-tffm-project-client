@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const showPlayersTemplate = require('../templates/players-listing.handlebars')
+const userApi = require('./api.js')
 
 const getPlayersSuccessInitial = function (response) {
 }
@@ -18,6 +19,8 @@ const getPlayerErrorSelectModal = function (error) {
 }
 
 const getPlayerSuccess = function (response) {
+  response.player.roster_spot = store.rosterSpot
+  userApi.updatePlayer(response.player.id, response)
   $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
   $('#playerSelect-form')[0].reset()

@@ -27,10 +27,10 @@ const createPlayer = function (data) {
   })
 }
 
-const updatePlayer = function (data) {
+const updatePlayer = function (id, data) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/players/' + data.player.ID,
+    url: config.apiUrl + '/players/' + id,
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -53,5 +53,6 @@ module.exports = {
   showPlayers,
   createPlayer,
   updatePlayer,
+  updatePlayerRosterSpot,
   deletePlayer
 }
