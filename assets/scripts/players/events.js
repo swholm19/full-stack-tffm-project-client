@@ -10,7 +10,7 @@ const onIndexPlayer = function (event) {
   store.rosterSpot = data.player.roster_position
   userApi.indexPlayer(data)
     .then(userUi.getPlayerSuccess)
-    .catch(userUi.getPlayerError)
+    .catch(userUi.getPlayerErrorSelectModal)
 }
 
 const onShowPlayersOnSignIn = function () {
@@ -21,20 +21,23 @@ const onShowPlayersOnSignIn = function () {
 const onShowPlayersForRosterSelectionModal = function () {
   userApi.showPlayers()
     .then(userUi.getPlayersSuccessSelector)
+    .catch(userUi.getPlayerErrorSelectModal)
 }
 
 const onCreatePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   userApi.createPlayer(data)
-    .then(userUi.getPlayerSuccess)
+    .then(userUi.createPlayerSuccess)
+    .catch(userUi.createPlayerError)
 }
 
 const onUpdatePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   userApi.updatePlayer(data)
-    .then(userUi.getPlayerSuccess)
+    .then(userUi.updatePlayerSuccess)
+    .catch(userUi.updatePlayerError)
 }
 
 const onDeletePlayer = function () {
