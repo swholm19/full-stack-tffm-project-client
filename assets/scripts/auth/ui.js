@@ -2,22 +2,25 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
+  console.log('here is the success: ', signUpResponse)
   $('#signUpModalLabel').html('You are Signed Up! Now you can Sign In! ', signUpResponse)
   $('#signUpModalLabel').css('color', 'green')
+  $('#signUpModal').modal('hide')
+  $('#signInModal').modal('show')
   $('#sign-up-form')[0].reset()
 }
 
 const signUpError = function (error) {
+  console.log('here is the error: ', error)
   $('#signUpModalLabel').html('Error. Please Try Again ', error)
   $('#signUpModalLabel').css('color', 'red')
   $('#sign-up-form')[0].reset()
 }
 
 const signInSuccess = function (response) {
-  $('#signInModalLabel').html('You are Signed In! ', response)
-  $('#signInModalLabel').css('color', 'green')
   $('.view1').css('display', 'none')
   $('.view2').css('display', 'block')
+  $('#signInModal').modal('hide')
   $('#sign-in-form')[0].reset()
   store.user = response.user
 }
@@ -41,6 +44,7 @@ const changePasswordError = function () {
 }
 
 const signOutSuccess = function (response) {
+  $('#signOutModal').modal('hide')
   $('#sign-out-text').html('You Have Successfully Signed Out')
   $('#sign-out-text').css('color', 'black')
   $('#signUpModalLabel').html('Sign Up')
