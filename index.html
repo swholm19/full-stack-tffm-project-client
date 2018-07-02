@@ -289,12 +289,22 @@
                   <input name='player[name]' type="text" class="form-control" id="playerCreateName" placeholder="Enter: Player Name">
                 </div>
                 <div class="form-group">
-                  <label for="playerPosition">Player Position</label>
-                  <input name='player[position]' type="text" class="form-control" id="playerCreatePosition" placeholder="Enter: Player Position">
+                  <label for="playerPosition">Select Position</label>
+                  <select name="player[position]" class="form-control">
+                    <option>QB</option>
+                    <option>RB</option>
+                    <option>WR</option>
+                    <option>TE</option>
+                    <option>D/ST</option>
+                    <option>K</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="playerKeeper">Player Keeper</label>
-                  <input name='player[keeper]' type="text" class="form-control" id="playerCreateKeeper" placeholder="Enter: True or False">
+                  <label for="playerKeeper">Select Keeper Status</label>
+                  <select name="player[keeper]" class="form-control">
+                    <option>True</option>
+                    <option>False</option>
+                  </select>
                 </div>
                 <button type='submit'>Create</button>
               </form>
@@ -326,12 +336,22 @@
                   <input name='player[name]' type="text" class="form-control" id="playerUpdateName" placeholder="Enter: Player Name">
                 </div>
                 <div class="form-group">
-                  <label for="playerPosition">Player Position</label>
-                  <input name='player[position]' type="text" class="form-control" id="playerUpdatePosition" placeholder="Enter: Player Position">
+                  <label for="playerPosition">Select Position</label>
+                  <select name="player[position]" class="form-control">
+                    <option>QB</option>
+                    <option>RB</option>
+                    <option>WR</option>
+                    <option>TE</option>
+                    <option>D/ST</option>
+                    <option>K</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="playerKeeper">Player Keeper</label>
-                  <input name='player[keeper]' type="text" class="form-control" id="playerUpdateKeeper" placeholder="Enter: True or False">
+                  <label for="playerKeeper">Select Keeper Status</label>
+                  <select name="player[keeper]" class="form-control">
+                    <option>True</option>
+                    <option>False</option>
+                  </select>
                 </div>
                 <button type='submit'>Update</button>
               </form>
@@ -352,15 +372,33 @@
               </button>
             </div>
             <div class="modal-body">
-              <ul class='all-players'></ul>
+              <ul class='all-players scrollable'></ul>
               <form id='playerSelect-form'>
                 <div class="form-group">
                   <label for="playerID">Player ID</label>
                   <input name='player[ID]' type="text" class="form-control" id="playerSelectID" placeholder="Enter: Player ID">
                 </div>
                 <div class="form-group">
-                  <label for="playerRosterPosition">Roster Position</label>
-                  <input name='player[roster_spot]' type="text" class="form-control" id="playerSelectRosterPosition" placeholder="Enter: Player Roster Position">
+                  <label for="playerRosterPosition">Select Roster Position</label>
+                  <select name="player[roster_spot]" class="form-control">
+                    <option>QB</option>
+                    <option>RB1</option>
+                    <option>RB2</option>
+                    <option>WR1</option>
+                    <option>WR2</option>
+                    <option>TE</option>
+                    <option>FLX</option>
+                    <option>D/ST</option>
+                    <option>K</option>
+                    <option>BE1</option>
+                    <option>BE2</option>
+                    <option>BE3</option>
+                    <option>BE4</option>
+                    <option>BE5</option>
+                    <option>BE6</option>
+                    <option>BE7</option>
+                    <option>IR</option>
+                  </select>
                 </div>
                 <button type='submit'>Select</button>
               </form>
@@ -372,7 +410,6 @@
           </div>
         </div>
       </div>
-
       <div class="modal fade" id="playerDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -383,7 +420,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <ul class='all-players'></ul>
+              <ul class='all-players scrollable'></ul>
               <form id='playerDelete-form'>
                 <div class="form-group">
                   <label for="playerID">Player ID</label>
