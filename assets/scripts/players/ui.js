@@ -19,6 +19,7 @@ const getPlayerSuccess = function (response) {
   $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
   $('#playerSelect-form')[0].reset()
+  delete store.rosterSpot
 }
 
 const getPlayersError = function () {

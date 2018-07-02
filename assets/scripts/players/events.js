@@ -13,12 +13,12 @@ const onIndexPlayer = function (event) {
     .catch(userUi.getPlayerError)
 }
 
-const onShowPlayersInitial = function () {
+const onShowPlayersOnSignIn = function () {
   userApi.showPlayers()
     .then(userUi.getPlayersSuccessInitial)
 }
 
-const onShowPlayersIndex = function () {
+const onShowPlayersForRosterSelectionModal = function () {
   userApi.showPlayers()
     .then(userUi.getPlayersSuccessSelector)
 }
@@ -45,8 +45,8 @@ const onDeletePlayer = function () {
 
 module.exports = {
   onIndexPlayer,
-  onShowPlayersInitial,
-  onShowPlayersIndex,
+  onShowPlayersOnSignIn,
+  onShowPlayersForRosterSelectionModal,
   onCreatePlayer,
   onUpdatePlayer,
   onDeletePlayer
