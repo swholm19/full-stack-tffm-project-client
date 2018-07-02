@@ -53,6 +53,5 @@ module.exports = {
   showPlayers,
   createPlayer,
   updatePlayer,
-  updatePlayerRosterSpot,
   deletePlayer
 }

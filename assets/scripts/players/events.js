@@ -15,7 +15,7 @@ const onIndexPlayer = function (event) {
 
 const onShowPlayersOnSignIn = function () {
   userApi.showPlayers()
-    .then(userUi.getPlayersSuccessInitial)
+    .then(userUi.getPlayersSuccessOnSignIn)
 }
 
 const onShowPlayersForRosterSelectionModal = function () {
