@@ -6,6 +6,7 @@ const getPlayersSuccessInitial = function (response) {
 }
 
 const getPlayersSuccessSelector = function (response) {
+  $('#all-players').empty()
   const showPlayersHtml = showPlayersTemplate({ players: response.players })
   $('#all-players').append(showPlayersHtml)
 }
@@ -15,7 +16,9 @@ const getPlayerError = function (error) {
 }
 
 const getPlayerSuccess = function (response) {
+  $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
+  $('#playerSelect-form')[0].reset()
 }
 
 const getPlayersError = function () {
