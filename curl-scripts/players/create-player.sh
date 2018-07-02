@@ -10,7 +10,8 @@ curl "http://localhost:4741/players" \
       "name": "'"${NAME}"'",
       "position": "'"${POSITION}"'",
       "keeper": "'"${KEEPER}"'",
-      "user_id": "'"${USERID}"'"
+      "user_id": "'"${USERID}"'",
+      "roster_spot": "'"${ROSTERSPOT}"'"
     }
   }'
 
