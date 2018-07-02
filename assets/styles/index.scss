@@ -50,9 +50,9 @@ h3 {
 .settings1 {
   background-color: #4e4e4e;
   border: 5px solid grey;
-  width: 90%;
-  margin-left: 5%;
   margin-bottom: 30px;
+  margin-left: 5%;
+  width: 90%;
 }
 
 .settings2 {
@@ -61,6 +61,12 @@ h3 {
 
 .settings3 {
   background-color: #dfdfdf;
+}
+
+.scrollable {
+  height: auto;
+  max-height: 250px;
+  overflow-x: hidden;
 }
 
 #menu-title {
