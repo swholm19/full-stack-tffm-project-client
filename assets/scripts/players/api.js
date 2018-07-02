@@ -40,8 +40,8 @@ const updatePlayer = function (id, data) {
 
 const deletePlayer = function (id) {
   return $.ajax({
-    method: 'DESTROY',
-    url: config.apiUrl + '/users/' + id,
+    method: 'DELETE',
+    url: config.apiUrl + '/players/' + id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

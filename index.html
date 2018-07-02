@@ -59,10 +59,10 @@
           <div class='col-md-2 box'><h3>Team Players</h3></div>
           <div class='col-md-5 box'></div>
           <div class='col-md-4 box'>
+            <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerDeleteModal">Delete</button>
             <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#playerUpdateModal">Update</button>
-            <button type="button" class="btn btn-primary content-button" id='player-selector' data-toggle="modal" data-target="#playerSelectModal">Select</button>
+            <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerSelectModal">Select</button>
             <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#playerCreateModal">Create</button>
-
           </div>
         </div>
         <div class="row article settings3">
@@ -352,7 +352,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <ul id='all-players'></ul>
+              <ul class='all-players'></ul>
               <form id='playerSelect-form'>
                 <div class="form-group">
                   <label for="playerID">Player ID</label>
@@ -360,9 +360,36 @@
                 </div>
                 <div class="form-group">
                   <label for="playerRosterPosition">Roster Position</label>
-                  <input name='player[roster_position]' type="text" class="form-control" id="playerSelectRosterPosition" placeholder="Enter: Player Roster Position">
+                  <input name='player[roster_spot]' type="text" class="form-control" id="playerSelectRosterPosition" placeholder="Enter: Player Roster Position">
                 </div>
                 <button type='submit'>Select</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="playerDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerDeleteModalLabel">Delete Player</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul class='all-players'></ul>
+              <form id='playerDelete-form'>
+                <div class="form-group">
+                  <label for="playerID">Player ID</label>
+                  <input name='player[ID]' type="text" class="form-control" id="playerDeleteID" placeholder="Enter: Player ID">
+                </div>
+                <button type='submit'>Delete</button>
               </form>
 
             </div>

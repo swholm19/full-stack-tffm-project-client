@@ -13,10 +13,10 @@ const getPlayersSuccessOnSignIn = function (response) {
 }
 
 const getPlayersSuccessSelector = function (response) {
-  $('#all-players').empty()
+  $('.all-players').empty()
   const yourPlayers = response.players.filter(player => store.user.id === player.user_id)
   const showPlayersHtml = showPlayersTemplate({ players: yourPlayers })
-  $('#all-players').append(showPlayersHtml)
+  $('.all-players').append(showPlayersHtml)
 }
 
 const getPlayerErrorSelectModal = function (error) {
@@ -63,6 +63,19 @@ const updatePlayerError = function (error) {
   $('#playerUpdate-form')[0].reset()
 }
 
+const deletePlayerSuccess = function () {
+  $('#playerDelete-form')[0].reset()
+  $('#playerDeleteModalLabel').html('Delete Player: ')
+  $('#playerDeleteModalLabel').css('color', 'grey')
+  $('#playerDeleteModal').modal('hide')
+}
+
+const deletePlayerError = function (error) {
+  $('#playerDeleteModalLabel').html('Error Deleting Player: ', error)
+  $('#playerDeleteModalLabel').css('color', 'red')
+  $('#playerDelete-form')[0].reset()
+}
+
 module.exports = {
   getPlayerSuccess,
   getPlayerErrorSelectModal,
@@ -71,5 +84,7 @@ module.exports = {
   createPlayerSuccess,
   createPlayerError,
   updatePlayerSuccess,
-  updatePlayerError
+  updatePlayerError,
+  deletePlayerSuccess,
+  deletePlayerError
 }

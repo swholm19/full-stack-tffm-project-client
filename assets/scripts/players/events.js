@@ -40,10 +40,12 @@ const onUpdatePlayer = function (event) {
     .catch(userUi.updatePlayerError)
 }
 
-const onDeletePlayer = function () {
-  userApi.deletePlayer(1)
-    .then(userUi.getPlayerSuccess)
-    .catch(userUi.getPlayerError)
+const onDeletePlayer = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  userApi.deletePlayer(data.player.ID)
+    .then(userUi.deletePlayerSuccess)
+    .catch(userUi.deletePlayerError)
 }
 
 module.exports = {
