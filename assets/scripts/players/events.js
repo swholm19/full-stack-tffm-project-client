@@ -1,27 +1,27 @@
 'use strict'
 const getFormFields = require('../../../lib/get-form-fields.js')
-const userUi = require('./ui.js')
-const userApi = require('./api.js')
+const playerUi = require('./ui.js')
+const playerApi = require('./api.js')
 const store = require('../store')
 
-const onIndexPlayer = function (event) {
+const onSignInFillRoster = function () {
+  playerApi.showPlayers()
+    .then(playerUi.signInFillRosterSuccess)
+}
+
+const selectPlayerForRoster = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.rosterSpot = data.player.roster_spot
-  userApi.indexPlayer(data)
-    .then(userUi.getPlayerSuccess)
-    .catch(userUi.getPlayerErrorSelectModal)
+  playerApi.indexPlayer(data)
+    .then(playerUi.assignPlayerToRosterSuccess)
+    .catch(playerUi.assignPlayerToRosterError)
 }
 
-const onShowPlayersOnSignIn = function () {
-  userApi.showPlayers()
-    .then(userUi.getPlayersSuccessOnSignIn)
-}
-
-const onShowPlayersForRosterSelectionModal = function () {
-  userApi.showPlayers()
-    .then(userUi.getPlayersSuccessSelector)
-    .catch(userUi.getPlayerErrorSelectModal)
+const onShowAllPlayers = function () {
+  playerApi.showPlayers()
+    .then(playerUi.showAllPlayersSuccess)
+    .catch(playerUi.assignPlayerToRosterError)
 }
 
 const onCreatePlayer = function (event) {
@@ -30,31 +30,31 @@ const onCreatePlayer = function (event) {
   if (data.player.keeper === 'False') {
     data.player.keeper = false
   }
-  userApi.createPlayer(data)
-    .then(userUi.createPlayerSuccess)
-    .catch(userUi.createPlayerError)
+  playerApi.createPlayer(data)
+    .then(playerUi.createPlayerSuccess)
+    .catch(playerUi.createPlayerError)
 }
 
 const onUpdatePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  userApi.updatePlayer(data.player.ID, data)
-    .then(userUi.updatePlayerSuccess)
-    .catch(userUi.updatePlayerError)
+  playerApi.updatePlayer(data.player.ID, data)
+    .then(playerUi.updatePlayerSuccess)
+    .catch(playerUi.updatePlayerError)
 }
 
 const onDeletePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  userApi.deletePlayer(data.player.ID)
-    .then(userUi.deletePlayerSuccess)
-    .catch(userUi.deletePlayerError)
+  playerApi.deletePlayer(data.player.ID)
+    .then(playerUi.deletePlayerSuccess)
+    .catch(playerUi.deletePlayerError)
 }
 
 module.exports = {
-  onIndexPlayer,
-  onShowPlayersOnSignIn,
-  onShowPlayersForRosterSelectionModal,
+  selectPlayerForRoster,
+  onSignInFillRoster,
+  onShowAllPlayers,
   onCreatePlayer,
   onUpdatePlayer,
   onDeletePlayer
