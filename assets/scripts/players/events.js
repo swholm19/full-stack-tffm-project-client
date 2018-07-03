@@ -27,6 +27,7 @@ const onShowPlayersForRosterSelectionModal = function () {
 const onCreatePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  data.player.keeper = false
   userApi.createPlayer(data)
     .then(userUi.createPlayerSuccess)
     .catch(userUi.createPlayerError)
