@@ -12,37 +12,40 @@ The application allows for fantasy football player tracking. You can input your
 players from previous years and the system will hold onto them so you can
 see who you have on your team and which ones are keepers.
 
-Once you log in, you can set your manage information. Once you have done that
+Once you log in, you can set your manager information. Once you have done that
 you can add, modify, delete any players. With the players that you do own, you
-can assign them to your roster by using the select button. 
+can assign them to your roster by using the select button.
 
 ## Technologies Used:
 Front-End: HTML5, SCSS, Bootstrap, jQuery, AJAX, HandleBars
+
 Back-End: Ruby on Rails, Postgresql, RESTful Services
+
 Deployment: GitHub and Heroku
 
 ## Unresolved Problems/ Future Work:
--Refactor how resting gameboard gets called once you have selected a player for
-a certain spot.
 -Add new resource table for League information.
+
 -Better automation for when assigning players roster spots, for QB spot filter
-down to only QBs you have on your roster
+down so only QBs you have show as options for that spot.
+
 -Save your roster year to year and be able to pull it back up.
--Seperate league databases you multiple league can utilize tool at the same time
+
+-Seperate league databases so multiple leagues can utilize tool at the same time
 
 ## Planning and Development Process:
-For this porject it took me a little while to find a problem i want to create
+For this project it took me a little while to find a problem i want to create
 an application to help solve. My motivation came from playing in a none
 typical fantasy football league where you have keeper players from the year
 before so you need to remember who was on your roster from the previous year
-to beable to make this work. What it came down to was the league commissioner
-always ended up with a big excel that he kept and no one knew if it was
-completely accurate. That is why i decided to make this to provide
-transparency about peoples players and keepers from year to year, across our
-league.
+to beable to play succesfully in this league. What it came down to was the
+league commissioner always ended up with a big excel that he kept and
+no one knew if it was completely accurate. That is why i decided to make this
+to provide transparency about each managers players and keepers from year
+to year, across our entire league.
 
-Once i figured out what i was going to do then, i created user stories on
-what the application was going to need to be able to do to make it at least
+Once i figured out what i was going to do. Then i created user stories on
+what the application was going to need to do to make it at least
 useful to our leage in some fashion. Once if figured out my MVP release i,
 started to create the Entity Relationship Diagrams (ERD) for how i was going to
 structure my database most efficiently, so i could have high performance and
@@ -52,7 +55,7 @@ experience would be like.
 
 Once i got all the preliminary work completed, i started coding. I started
 setting up the environments that i would be working in both development and
-production and make sure everything was deploying and running smooth. Then i
+production and made sure everything was deploying and running smoothly. Then i
 began on the API. I used the rails feature to scaffold out my resources.
 The template i started with already had a user resource created so i
 modified that till it matched my ERD, then i created my second resource
@@ -70,9 +73,9 @@ which allowed the user to update all of there user/manager info and display
 it in the UI.
 
 The next part was the biggest and most complicated. I started on the player
-section, where the mangager could CRUD players and assign them to roster spots.
+section, where the manager could CRUD players and assign them to roster spots.
 There was a lot of logic to make sure only certain players can go to certain
-roster spots and if someone is alreay assign they cannot be reassigned. In
+roster spots and if someone is alreay assigned they cannot be reassigned. In
 this section i used a combination of HandleBars and jQuery to manipulate the
 UI to present to user the feedback on there actions.
 
