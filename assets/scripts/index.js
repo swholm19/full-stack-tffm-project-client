@@ -24,4 +24,5 @@ $(() => {
   $('#playerSelect-form').on('submit', playerEvent.selectPlayerForRoster)
   $('.player-selector').on('click', playerEvent.onShowAllPlayers)
   $('#playerDelete-form').on('submit', playerEvent.onDeletePlayer)
+  $('#roster-refresh').on('click', playerEvent.onSignInFillRoster)
 })
