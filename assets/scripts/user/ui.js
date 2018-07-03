@@ -7,6 +7,7 @@ const getUserSuccess = function (response) {
   $('#managerEmail').html(`Email: ${store.manager.email}`)
   $('#managerTeam').html(`Team Name: ${store.manager.team_name}`)
   $('#managerStatement').html(`Team Statement: ${store.manager.team_statement}`)
+  $('#managerModal').modal('hide')
   $('#manager-form')[0].reset()
 }
 

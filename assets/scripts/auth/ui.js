@@ -51,6 +51,7 @@ const signOutSuccess = function (response) {
   $('#signInModalLabel').css('color', 'black')
   $('#changePasswordModalLabel').html('Change Password')
   $('#changePasswordModalLabel').css('color', 'black')
+  $('.roster').html('-')
   $('.view1').css('display', 'block')
   $('.view2').css('display', 'none')
   delete store.user
