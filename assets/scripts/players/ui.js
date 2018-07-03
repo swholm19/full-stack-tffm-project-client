@@ -2,8 +2,10 @@
 const store = require('../store')
 const showPlayersTemplate = require('../templates/players-listing.handlebars')
 const playerApi = require('./api.js')
+// const playerEvent = require('./events.js')
 
 const signInFillRosterSuccess = function (response) {
+  $('.roster').html('-')
   response.players.forEach((player) => {
     if (store.user.id === player.user_id) {
       if (player.roster_spot !== '') {
@@ -17,6 +19,7 @@ const signInFillRosterSuccess = function (response) {
 const assignPlayerToRosterSuccess = function (response) {
   response.player.roster_spot = store.rosterSpot
   playerApi.updatePlayer(response.player.id, response)
+  // .then(() => playerEvent.onSignInFillRoster) // Does not work was intended still out of timing sync issue
   $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
   $('#playerSelect-form')[0].reset()

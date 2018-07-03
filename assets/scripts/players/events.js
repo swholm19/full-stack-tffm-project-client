@@ -16,7 +16,14 @@ const selectPlayerForRoster = function (event) {
   checkRosterSpotOpening()
   playerApi.indexPlayer(data)
     .then(playerUi.assignPlayerToRosterSuccess)
+    .then(wasteTime)
     .catch(playerUi.assignPlayerToRosterError)
+}
+
+// Workaround to AJAX timing sync issue... not ideal
+const wasteTime = function () {
+  for (let i = 0; i < 100000000; i++) {}
+  onSignInFillRoster()
 }
 
 const checkRosterSpotOpening = function () {
@@ -51,6 +58,7 @@ const onUpdatePlayer = function (event) {
   const data = getFormFields(event.target)
   playerApi.updatePlayer(data.player.ID, data)
     .then(playerUi.updatePlayerSuccess)
+    .then(() => onSignInFillRoster())
     .catch(playerUi.updatePlayerError)
 }
 
@@ -59,6 +67,7 @@ const onDeletePlayer = function (event) {
   const data = getFormFields(event.target)
   playerApi.deletePlayer(data.player.ID)
     .then(playerUi.deletePlayerSuccess)
+    .then(() => onSignInFillRoster())
     .catch(playerUi.deletePlayerError)
 }
 
