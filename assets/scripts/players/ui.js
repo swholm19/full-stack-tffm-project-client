@@ -2,7 +2,6 @@
 const store = require('../store')
 const showPlayersTemplate = require('../templates/players-listing.handlebars')
 const playerApi = require('./api.js')
-// const playerEvent = require('./events.js')
 
 const signInFillRosterSuccess = function (response) {
   $('.roster').html('-')
@@ -83,6 +82,19 @@ const deletePlayerError = function (error) {
   delete store.yourPlayers
 }
 
+const resetUiHandleing = function () {
+  $('#playerDeleteModalLabel').html('Delete Player: ')
+  $('#playerDeleteModalLabel').css('color', 'grey')
+  $('#playerUpdateModalLabel').html('Update Player')
+  $('#playerUpdateModalLabel').css('color', 'grey')
+  $('#playerCreateModalLabel').html('Create Player')
+  $('#playerCreateModalLabel').css('color', 'grey')
+  $('#playerSelectModalLabel').html('Select Player')
+  $('#playerSelectModalLabel').css('color', 'grey')
+  $('#managerModalLabel').html('Manager Profile')
+  $('#managerModalLabel').css('color', 'grey')
+}
+
 module.exports = {
   signInFillRosterSuccess,
   assignPlayerToRosterSuccess,
@@ -93,5 +105,6 @@ module.exports = {
   updatePlayerSuccess,
   updatePlayerError,
   deletePlayerSuccess,
-  deletePlayerError
+  deletePlayerError,
+  resetUiHandleing
 }

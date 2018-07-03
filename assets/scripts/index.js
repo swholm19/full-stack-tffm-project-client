@@ -9,6 +9,7 @@
 const authEvents = require('./auth/events')
 const userProfile = require('./user/events')
 const playerEvent = require('./players/events')
+const playerUi = require('./players/ui')
 
 $(() => {
   // Authentication Event Handlers
@@ -25,4 +26,7 @@ $(() => {
   $('.player-selector').on('click', playerEvent.onShowAllPlayers)
   $('#playerDelete-form').on('submit', playerEvent.onDeletePlayer)
   $('#roster-refresh').on('click', playerEvent.onSignInFillRoster)
+
+  // Reset UI Handling Elements
+  $('.content-button').on('click', playerUi.resetUiHandleing)
 })

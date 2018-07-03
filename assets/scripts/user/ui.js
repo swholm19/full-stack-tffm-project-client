@@ -12,30 +12,12 @@ const getUserSuccess = function (response) {
 }
 
 const getUserError = function (error) {
-  console.log(error)
+  $('#managerModalLabel').html('Error', error)
+  $('#managerModalLabel').css('color', 'red')
   $('#manager-form')[0].reset()
-}
-
-const getUsersSuccess = function (response) {
-  console.log(response)
-  $('#manager-form')[0].reset()
-  store.user = response.user
-}
-
-const getUsersError = function () {
-}
-
-const setUserSuccess = function (response) {
-}
-
-const setUserError = function () {
 }
 
 module.exports = {
   getUserSuccess,
-  getUserError,
-  getUsersSuccess,
-  getUsersError,
-  setUserSuccess,
-  setUserError
+  getUserError
 }
