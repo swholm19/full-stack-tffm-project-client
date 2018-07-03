@@ -13,9 +13,20 @@ const selectPlayerForRoster = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.rosterSpot = data.player.roster_spot
+  checkRosterSpotOpening()
   playerApi.indexPlayer(data)
     .then(playerUi.assignPlayerToRosterSuccess)
     .catch(playerUi.assignPlayerToRosterError)
+}
+
+const checkRosterSpotOpening = function () {
+  store.yourPlayers.forEach((currentPlayer) => {
+    if (currentPlayer.roster_spot === store.rosterSpot) {
+      currentPlayer.roster_spot = ''
+      const data = {player: currentPlayer}
+      playerApi.updatePlayer(currentPlayer.id, data)
+    }
+  })
 }
 
 const onShowAllPlayers = function () {

@@ -1,21 +1,22 @@
 'use strict'
 const store = require('../store')
 const showPlayersTemplate = require('../templates/players-listing.handlebars')
-const userApi = require('./api.js')
+const playerApi = require('./api.js')
 
 const signInFillRosterSuccess = function (response) {
   response.players.forEach((player) => {
     if (store.user.id === player.user_id) {
-      $(`#${player.roster_spot}`).empty()
-      $(`#${player.roster_spot}`).append(` ${player.name}, Keeper: ${player.keeper}`)
+      if (player.roster_spot !== '') {
+        $(`#${player.roster_spot}`).empty()
+        $(`#${player.roster_spot}`).append(` ${player.name}, Keeper: ${player.keeper}`)
+      }
     }
   })
 }
 
 const assignPlayerToRosterSuccess = function (response) {
   response.player.roster_spot = store.rosterSpot
-  checkRosterSpotOpening()
-  userApi.updatePlayer(response.player.id, response)
+  playerApi.updatePlayer(response.player.id, response)
   $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
   $('#playerSelect-form')[0].reset()
@@ -24,16 +25,6 @@ const assignPlayerToRosterSuccess = function (response) {
   $('#playerSelectModal').modal('hide')
   delete store.rosterSpot
   delete store.yourPlayers
-}
-
-const checkRosterSpotOpening = function () {
-  store.yourPlayers.forEach((currentPlayer) => {
-    if (currentPlayer.roster_spot === store.rosterSpot) {
-      currentPlayer.roster_spot = ''
-      const data = {player: currentPlayer}
-      userApi.updatePlayer(currentPlayer.id, data)
-    }
-  })
 }
 
 const assignPlayerToRosterError = function (error) {
