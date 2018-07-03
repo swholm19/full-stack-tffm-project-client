@@ -14,6 +14,7 @@ const signInFillRosterSuccess = function (response) {
 
 const assignPlayerToRosterSuccess = function (response) {
   response.player.roster_spot = store.rosterSpot
+  checkRosterSpotOpening()
   userApi.updatePlayer(response.player.id, response)
   $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
@@ -22,6 +23,17 @@ const assignPlayerToRosterSuccess = function (response) {
   $('#playerSelectModalLabel').css('color', 'grey')
   $('#playerSelectModal').modal('hide')
   delete store.rosterSpot
+  delete store.yourPlayers
+}
+
+const checkRosterSpotOpening = function () {
+  store.yourPlayers.forEach((currentPlayer) => {
+    if (currentPlayer.roster_spot === store.rosterSpot) {
+      currentPlayer.roster_spot = ''
+      const data = {player: currentPlayer}
+      userApi.updatePlayer(currentPlayer.id, data)
+    }
+  })
 }
 
 const assignPlayerToRosterError = function (error) {
@@ -32,8 +44,8 @@ const assignPlayerToRosterError = function (error) {
 
 const showAllPlayersSuccess = function (response) {
   $('.all-players').empty()
-  const yourPlayers = response.players.filter(player => store.user.id === player.user_id)
-  const showPlayersHtml = showPlayersTemplate({ players: yourPlayers })
+  store.yourPlayers = response.players.filter(player => store.user.id === player.user_id)
+  const showPlayersHtml = showPlayersTemplate({ players: store.yourPlayers })
   $('.all-players').append(showPlayersHtml)
 }
 
@@ -68,12 +80,14 @@ const deletePlayerSuccess = function () {
   $('#playerDeleteModalLabel').html('Delete Player: ')
   $('#playerDeleteModalLabel').css('color', 'grey')
   $('#playerDeleteModal').modal('hide')
+  delete store.yourPlayers
 }
 
 const deletePlayerError = function (error) {
   $('#playerDeleteModalLabel').html('Error Deleting Player: ', error)
   $('#playerDeleteModalLabel').css('color', 'red')
   $('#playerDelete-form')[0].reset()
+  delete store.yourPlayers
 }
 
 module.exports = {
