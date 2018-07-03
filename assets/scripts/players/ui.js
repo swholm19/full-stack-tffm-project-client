@@ -18,8 +18,6 @@ const signInFillRosterSuccess = function (response) {
 
 const assignPlayerToRosterSuccess = function (response) {
   response.player.roster_spot = store.rosterSpot
-  playerApi.updatePlayer(response.player.id, response)
-  // .then(() => playerEvent.onSignInFillRoster) // Does not work was intended still out of timing sync issue
   $(`#${store.rosterSpot}`).empty()
   $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
   $('#playerSelect-form')[0].reset()
@@ -28,6 +26,7 @@ const assignPlayerToRosterSuccess = function (response) {
   $('#playerSelectModal').modal('hide')
   delete store.rosterSpot
   delete store.yourPlayers
+  return playerApi.updatePlayer(response.player.id, response)
 }
 
 const assignPlayerToRosterError = function (error) {

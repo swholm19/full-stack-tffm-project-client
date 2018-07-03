@@ -16,14 +16,8 @@ const selectPlayerForRoster = function (event) {
   checkRosterSpotOpening()
   playerApi.indexPlayer(data)
     .then(playerUi.assignPlayerToRosterSuccess)
-    .then(wasteTime)
+    .then(() => onSignInFillRoster())
     .catch(playerUi.assignPlayerToRosterError)
-}
-
-// Workaround to AJAX timing sync issue... not ideal
-const wasteTime = function () {
-  for (let i = 0; i < 100000000; i++) {}
-  onSignInFillRoster()
 }
 
 const checkRosterSpotOpening = function () {
