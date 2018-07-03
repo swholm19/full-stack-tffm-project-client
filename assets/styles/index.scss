@@ -11,10 +11,11 @@ footer {
   background-color: grey;
   bottom: 0;
   color: white;
-  height: 40px;
+  height: 20px;
   left: 0;
   margin-top: 10px;
-  padding-top: 7px;
+  opacity: 0.9;
+  padding-top: 1px;
   position: fixed;
   text-align: center;
   width: 100%;
@@ -22,6 +23,10 @@ footer {
 
 h3 {
   color: #dfdfdf;
+}
+
+.navbar {
+  opacity: 0.9;
 }
 
 .menu {
