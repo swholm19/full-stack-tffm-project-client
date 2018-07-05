@@ -50,6 +50,9 @@ const onCreatePlayer = function (event) {
 const onUpdatePlayer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  if (data.player.keeper === 'False') {
+    data.player.keeper = false
+  }
   playerApi.updatePlayer(data.player.ID, data)
     .then(playerUi.updatePlayerSuccess)
     .then(() => onSignInFillRoster())
