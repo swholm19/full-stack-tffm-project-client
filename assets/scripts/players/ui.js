@@ -16,16 +16,18 @@ const signInFillRosterSuccess = function (response) {
 }
 
 const assignPlayerToRosterSuccess = function (response) {
-  response.player.roster_spot = store.rosterSpot
-  $(`#${store.rosterSpot}`).empty()
-  $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
-  $('#playerSelect-form')[0].reset()
-  $('#playerSelectModalLabel').html('Select Player')
-  $('#playerSelectModalLabel').css('color', 'grey')
-  $('#playerSelectModal').modal('hide')
-  delete store.rosterSpot
-  delete store.yourPlayers
-  return playerApi.updatePlayer(response.player.id, response)
+  if (response !== undefined) {
+    response.player.roster_spot = store.rosterSpot
+    $(`#${store.rosterSpot}`).empty()
+    $(`#${store.rosterSpot}`).append(` ${response.player.name}, Keeper: ${response.player.keeper}`)
+    $('#playerSelect-form')[0].reset()
+    $('#playerSelectModalLabel').html('Select Player')
+    $('#playerSelectModalLabel').css('color', 'grey')
+    $('#playerSelectModal').modal('hide')
+    delete store.rosterSpot
+    delete store.yourPlayers
+    return playerApi.updatePlayer(response.player.id, response)
+  }
 }
 
 const assignPlayerToRosterError = function () {

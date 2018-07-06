@@ -22,13 +22,17 @@ const selectPlayerForRoster = function (event) {
 }
 
 const checkRosterSpotOpening = function (response) {
-  store.yourPlayers.forEach((currentPlayer) => {
-    if (currentPlayer.roster_spot === store.rosterSpot) {
-      currentPlayer.roster_spot = ''
-      const data = {player: currentPlayer}
-      playerApi.updatePlayer(currentPlayer.id, data)
-    }
-  })
+  if (response !== undefined) {
+    store.yourPlayers.forEach((currentPlayer) => {
+      if (response.player.id !== currentPlayer.id) {
+        if (currentPlayer.roster_spot === store.rosterSpot) {
+          currentPlayer.roster_spot = ''
+          const data = {player: currentPlayer}
+          playerApi.updatePlayer(currentPlayer.id, data)
+        }
+      }
+    })
+  }
   return response
 }
 
@@ -36,7 +40,7 @@ const checkOwner = function (response) {
   if (response.player.user_id === store.user.id) {
     return response
   } else {
-    playerUi.assignPlayerRosterError()
+    playerUi.assignPlayerToRosterError()
   }
 }
 
