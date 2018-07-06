@@ -62,7 +62,7 @@
           <div class='col-md-6 box'>
             <button type="button" class="btn btn-primary content-button" id="roster-refresh" data-toggle="modal" data-target="#refreshRosterModal">Reset Roster</button>
             <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerDeleteModal">Delete</button>
-            <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#playerUpdateModal">Update</button>
+            <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerUpdateModal">Update</button>
             <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerSelectModal">Select</button>
             <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#playerCreateModal">Create</button>
           </div>
@@ -327,6 +327,7 @@
               </button>
             </div>
             <div class="modal-body">
+              <ul class='all-players scrollable'></ul>
               <form id='playerUpdate-form'>
                 <div class="form-group">
                   <label for="playerID">Player ID</label>
