@@ -25,7 +25,6 @@ $(() => {
   $('#playerSelect-form').on('submit', playerEvent.selectPlayerForRoster)
   $('.player-selector').on('click', playerEvent.onShowAllPlayers)
   $('#playerDelete-form').on('submit', playerEvent.onDeletePlayer)
-  $('#roster-refresh').on('click', playerEvent.onSignInFillRoster)
 
   // Reset UI Handling Elements
   $('.content-button').on('click', playerUi.resetUiHandleing)
