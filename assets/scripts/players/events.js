@@ -13,14 +13,15 @@ const selectPlayerForRoster = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.rosterSpot = data.player.roster_spot
-  checkRosterSpotOpening()
-  playerApi.indexPlayer(data)
+  playerApi.indexPlayer(data.player.ID)
+    .then(checkOwner)
+    .then(checkRosterSpotOpening)
     .then(playerUi.assignPlayerToRosterSuccess)
     .then(() => onSignInFillRoster())
     .catch(playerUi.assignPlayerToRosterError)
 }
 
-const checkRosterSpotOpening = function () {
+const checkRosterSpotOpening = function (response) {
   store.yourPlayers.forEach((currentPlayer) => {
     if (currentPlayer.roster_spot === store.rosterSpot) {
       currentPlayer.roster_spot = ''
@@ -28,6 +29,15 @@ const checkRosterSpotOpening = function () {
       playerApi.updatePlayer(currentPlayer.id, data)
     }
   })
+  return response
+}
+
+const checkOwner = function (response) {
+  if (response.player.user_id === store.user.id) {
+    return response
+  } else {
+    playerUi.assignPlayerRosterError()
+  }
 }
 
 const onShowAllPlayers = function () {

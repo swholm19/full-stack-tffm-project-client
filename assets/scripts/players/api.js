@@ -2,10 +2,10 @@
 const config = require('../config')
 const store = require('../store')
 
-const indexPlayer = function (data) {
+const indexPlayer = function (id) {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/players/' + data.player.ID
+    url: config.apiUrl + '/players/' + id
   })
 }
 

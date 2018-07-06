@@ -28,8 +28,8 @@ const assignPlayerToRosterSuccess = function (response) {
   return playerApi.updatePlayer(response.player.id, response)
 }
 
-const assignPlayerToRosterError = function (error) {
-  $('#playerSelectModalLabel').html('Player Not Valid: ', error)
+const assignPlayerToRosterError = function () {
+  $('#playerSelectModalLabel').html('Player Not Valid: ')
   $('#playerSelectModalLabel').css('color', 'red')
   $('#playerSelect-form')[0].reset()
 }
