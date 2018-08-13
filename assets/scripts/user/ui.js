@@ -9,6 +9,7 @@ const getUserSuccess = function (response) {
   $('#managerStatement').html(`Team Statement: ${store.manager.team_statement}`)
   $('#managerModal').modal('hide')
   $('#manager-form')[0].reset()
+  return response
 }
 
 const getUserError = function (error) {

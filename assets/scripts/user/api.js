@@ -23,6 +23,7 @@ const getUsers = function () {
 }
 
 const setUser = function (data) {
+  console.log('updating user: ', data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/users/' + store.user.id,

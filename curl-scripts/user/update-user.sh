@@ -13,7 +13,8 @@ curl "http://localhost:4741/users/${ID}" \
       "email": "'"${EMAIL}"'",
       "name": "'"${NAME}"'",
       "team_name": "'"${TEAMNAME}"'",
-      "team_statement": "'"${TEAMSTATEMENT}"'"
+      "team_statement": "'"${TEAMSTATEMENT}"'",
+      "league_id": "'"${LEAGUEID}"'"
     }
   }'
 

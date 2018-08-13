@@ -18,13 +18,15 @@ $(() => {
   $('#change-password-form').on('submit', authEvents.onChangePW)
   $('#sign-out').on('click', authEvents.onSignOut)
 
-  // Action Event Handlers
+  // Action Event Handlers - Manager/Player
   $('#manager-form').on('submit', userProfile.onSetUser)
   $('#playerCreate-form').on('submit', playerEvent.onCreatePlayer)
   $('#playerUpdate-form').on('submit', playerEvent.onUpdatePlayer)
   $('#playerSelect-form').on('submit', playerEvent.selectPlayerForRoster)
   $('.player-selector').on('click', playerEvent.onShowAllPlayers)
   $('#playerDelete-form').on('submit', playerEvent.onDeletePlayer)
+
+  // Action Event Handlers - League
 
   // Reset UI Handling Elements
   $('.content-button').on('click', playerUi.resetUiHandleing)

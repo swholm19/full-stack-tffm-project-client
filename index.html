@@ -94,8 +94,7 @@
         </div>
       </div>
 
-      <!-- This is next step in development to create league resource and allow you to show league information -->
-      <!-- <div class="row article settings1 view2">
+      <div class="row article settings1 view2">
         <div class="row article settings2">
           <div class='col-md-1 box'></div>
           <div class='col-md-5 box'><h3>League</h3></div>
@@ -106,17 +105,17 @@
           <div class='col-md-1 box'></div>
           <div class='col-md-10 box'>
             <ul>
-              <li>League Name:</li>
-              <li>Rules:</li>
-              <li>Members:</li>
-              <li>League Mission Statement:</li>
-              <li>Last Year Winner:</li>
-              <li>Last Year Loser:</li>
+              <li>League Name: <span id='leagueName'>-</span></li>
+              <li>Commissioner: <span id='leagueCommissioner'>-</span></li>
+              <li>Rules: <span id='leagueRules'>-</span></li>
+              <li>Members: <span id='leagueMembers'>-</span></li>
+              <li>Last Year Winner: <span id='leagueChampion'>-</span></li>
+              <li>Last Year Loser: <span id='leagueLoser'>-</span></li>
             </ul>
           </div>
           <div class='col-md-1 box'></div>
         </div>
-      </div> -->
+      </div>
 
       <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -260,6 +259,10 @@
                 <div class="form-group">
                   <label for="managerTeamStatement">Team Statement</label>
                   <input name='user[team_statement]' type="text" class="form-control" id="managerTeamStatment" placeholder="Enter: Team Statement">
+                </div>
+                <div class="form-group">
+                  <label for="managerLeauge">League</label>
+                  <input name='user[league_id]' type="text" class="form-control" id="managerLeague" placeholder="Enter: League ID">
                 </div>
                 <button type='submit'>Update</button>
               </form>
