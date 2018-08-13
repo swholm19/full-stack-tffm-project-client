@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TFFM</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+          <p id='menu-title'>The Fantasy Football Manager</p>
+          <button type="button" class="btn btn-primary menu view1" data-toggle="modal" data-target="#signUpModal">
+          Sign Up
+          </button>
+          <button type="button" class="btn btn-primary menu view1"  data-toggle="modal" data-target="#signInModal">
+          Sign In
+          </button>
+          <button type="button" class="btn btn-primary menu view2" data-toggle="modal" data-target="#changePasswordModal">
+          Change Password
+          </button>
+          <button type="button" id='sign-out' class="btn btn-primary menu view2" data-toggle="modal" data-target="#signOutModal">
+          Sign Out
+          </button>
+        </div>
+      </nav>
+
+      <div class="row article settings1 view2">
+        <div class="row article settings2">
+          <div class='col-md-1 box'></div>
+          <div class='col-md-2 box'><h3>Manager Profile</h3></div>
+          <div class='col-md-7 box'></div>
+          <div class='col-md-1 box'>
+            <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#managerModal">Update</button>
+          </div>
+          <div class='col-md-1 box'></div>
+        </div>
+        <div class="row article settings3">
+          <div class='col-md-1 box'></div>
+          <div class='col-md-8 box'>
+            <ul>
+              <li id="managerName">Name:</li>
+              <li id="managerEmail">Email:</li>
+              <li id="managerTeam">Team Name:</li>
+              <li id="managerStatement">Team Statement:</li>
+            </ul>
+          </div>
+          <div class='col-md-3 box'></div>
+        </div>
+      </div>
+
+      <div class="row article settings1 view2">
+        <div class="row article settings2">
+          <div class='col-md-1 box'></div>
+          <div class='col-md-2 box'><h3>Team Players</h3></div>
+          <div class='col-md-2 box'></div>
+          <div class='col-md-6 box'>
+            <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerDeleteModal">Delete</button>
+            <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerUpdateModal">Update</button>
+            <button type="button" class="btn btn-primary content-button player-selector" data-toggle="modal" data-target="#playerSelectModal">Select</button>
+            <button type="button" class="btn btn-primary content-button" data-toggle="modal" data-target="#playerCreateModal">Create</button>
+          </div>
+        </div>
+        <div class="row article settings3">
+          <div class='col-md-1 box'></div>
+          <div class='col-md-10 box'>
+            <ul>
+              <hr>
+              <li>QB: <span class='roster' id='QB'>-</span></li><hr>
+              <li>RB1: <span class='roster' id='RB1'>-</span></li><hr>
+              <li >RB2: <span class='roster' id='RB2'>-</span></li><hr>
+              <li >WR1: <span class='roster' id='WR1'>-</span></li><hr>
+              <li >WR2: <span class='roster' id='WR2'>-</span></li><hr>
+              <li>TE: <span class='roster' id='TE'>-</span></li><hr>
+              <li>FLX: <span class='roster' id='FLX'>-</span></li><hr>
+              <li>Defense: <span class='roster' id='Defense'>-</span></li><hr>
+              <li>K: <span class='roster' id='K'>-</span></li><hr>
+              <li>BE1: <span class='roster' id='BE1'>-</span></li><hr>
+              <li>BE2: <span class='roster' id='BE2'>-</span></li><hr>
+              <li>BE3: <span class='roster' id='BE3'>-</span></li><hr>
+              <li>BE4: <span class='roster' id='BE4'>-</span></li><hr>
+              <li>BE5: <span class='roster' id='BE5'>-</span></li><hr>
+              <li>BE6: <span class='roster' id='BE6'>-</span></li><hr>
+              <li>BE7: <span class='roster' id='BE7'>-</span></li><hr>
+              <li>IR: <span class='roster' id='IR'>-</span></li><hr>
+            </ul>
+          </div>
+          <div class='col-md-1 box'></div>
+        </div>
+      </div>
+
+      <!-- This is next step in development to create league resource and allow you to show league information -->
+      <!-- <div class="row article settings1 view2">
+        <div class="row article settings2">
+          <div class='col-md-1 box'></div>
+          <div class='col-md-5 box'><h3>League</h3></div>
+          <div class='col-md-4 box'></div>
+          <div class='col-md-2 box'></div>
+        </div>
+        <div class="row article settings3">
+          <div class='col-md-1 box'></div>
+          <div class='col-md-10 box'>
+            <ul>
+              <li>League Name:</li>
+              <li>Rules:</li>
+              <li>Members:</li>
+              <li>League Mission Statement:</li>
+              <li>Last Year Winner:</li>
+              <li>Last Year Loser:</li>
+            </ul>
+          </div>
+          <div class='col-md-1 box'></div>
+        </div>
+      </div> -->
+
+      <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signOutModalLabel">Sign Out</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <h4 id='sign-out-text'></h4>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id='change-password-form'>
+                <div class="form-group">
+                  <label for="changePasswordInputPassword1">Old Password</label>
+                  <input name='passwords[old]' type="password" class="form-control" id="changePasswordInputPasswordOld" placeholder="Old Password">
+                </div>
+                <div class="form-group">
+                  <label for="signUpInputPasswordConfirmation1">New Password</label>
+                  <input name='passwords[new]' type="password" class="form-control" id="changePasswordInputNew" placeholder="New Password">
+                </div>
+                <button type='submit'>Change Password</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id='sign-up-form'>
+                <div class="form-group">
+                  <label for="signUpInputEmail1">Email Address</label>
+                  <input name='credentials[email]' type="email" class="form-control" id="signUpInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="signUpInputPassword1">Password</label>
+                  <input name='credentials[password]' type="password" class="form-control" id="SignUpInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="signUpInputPasswordConfirmation1">Password Confirmation</label>
+                  <input name='credentials[password_confirmation]' type="password" class="form-control" id="SignUpInputPasswordConfirmation1" placeholder="Password Confirmation">
+                </div>
+                <button type='submit'>Sign-Up</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id='sign-in-form'>
+                <div class="form-group">
+                  <label for="signInInputEmail1">Email Address</label>
+                  <input name='credentials[email]' type="email" class="form-control" id="signInInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="signInInputPassword1">Password</label>
+                  <input name='credentials[password]' type="password" class="form-control" id="SignInInputPassword1" placeholder="Password">
+                </div>
+                <button type='submit'>Sign-In</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="close-sign-up" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="managerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="managerModalLabel">Manager Settings</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id='manager-form'>
+                <div class="form-group">
+                  <label for="managerName">Name</label>
+                  <input name='user[name]' type="text" class="form-control" id="managerName" placeholder="Enter: Name">
+                </div>
+                <div class="form-group">
+                  <label for="managerEmail">Email</label>
+                  <input name='user[email]' type="email" class="form-control" id="managerEmail" aria-describedby="emailHelp" placeholder="Enter: Email">
+                </div>
+                <div class="form-group">
+                  <label for="managerTeamName">Team Name</label>
+                  <input name='user[team_name]' type="text" class="form-control" id="managerTeamName" placeholder="Enter: Team Name">
+                </div>
+                <div class="form-group">
+                  <label for="managerTeamStatement">Team Statement</label>
+                  <input name='user[team_statement]' type="text" class="form-control" id="managerTeamStatment" placeholder="Enter: Team Statement">
+                </div>
+                <button type='submit'>Update</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="playerCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerCreateModalLabel">Create New Player</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id='playerCreate-form'>
+                <div class="form-group">
+                  <label for="playerName">Player Name</label>
+                  <input name='player[name]' type="text" class="form-control" id="playerCreateName" placeholder="Enter: Player Name">
+                </div>
+                <div class="form-group">
+                  <label for="playerPosition">Select Position</label>
+                  <select name="player[position]" class="form-control">
+                    <option>QB</option>
+                    <option>RB</option>
+                    <option>WR</option>
+                    <option>TE</option>
+                    <option>Defense</option>
+                    <option>K</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="playerKeeper">Select Keeper Status</label>
+                  <select name="player[keeper]" class="form-control">
+                    <option>True</option>
+                    <option>False</option>
+                  </select>
+                </div>
+                <button type='submit'>Create</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="playerUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerUpdateModalLabel">Update Player</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul class='all-players scrollable'></ul>
+              <form id='playerUpdate-form'>
+                <div class="form-group">
+                  <label for="playerID">Player ID</label>
+                  <input name='player[ID]' type="text" class="form-control" id="playerUpdateID" placeholder="Enter: Player ID">
+                </div>
+                <div class="form-group">
+                  <label for="playerName">Player Name</label>
+                  <input name='player[name]' type="text" class="form-control" id="playerUpdateName" placeholder="Enter: Player Name">
+                </div>
+                <div class="form-group">
+                  <label for="playerPosition">Select Position</label>
+                  <select name="player[position]" class="form-control">
+                    <option>QB</option>
+                    <option>RB</option>
+                    <option>WR</option>
+                    <option>TE</option>
+                    <option>Defense</option>
+                    <option>K</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="playerKeeper">Select Keeper Status</label>
+                  <select name="player[keeper]" class="form-control">
+                    <option>True</option>
+                    <option>False</option>
+                  </select>
+                </div>
+                <button type='submit'>Update</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="playerSelectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerSelectModalLabel">Select Player</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul class='all-players scrollable'></ul>
+              <form id='playerSelect-form'>
+                <div class="form-group">
+                  <label for="playerID">Player ID</label>
+                  <input name='player[ID]' type="text" class="form-control" id="playerSelectID" placeholder="Enter: Player ID">
+                </div>
+                <div class="form-group">
+                  <label for="playerRosterPosition">Select Roster Position</label>
+                  <select name="player[roster_spot]" class="form-control">
+                    <option>QB</option>
+                    <option>RB1</option>
+                    <option>RB2</option>
+                    <option>WR1</option>
+                    <option>WR2</option>
+                    <option>TE</option>
+                    <option>FLX</option>
+                    <option>Defense</option>
+                    <option>K</option>
+                    <option>BE1</option>
+                    <option>BE2</option>
+                    <option>BE3</option>
+                    <option>BE4</option>
+                    <option>BE5</option>
+                    <option>BE6</option>
+                    <option>BE7</option>
+                    <option>IR</option>
+                  </select>
+                </div>
+                <button type='submit'>Select</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="playerDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="playerDeleteModalLabel">Delete Player</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul class='all-players scrollable'></ul>
+              <form id='playerDelete-form'>
+                <div class="form-group">
+                  <label for="playerID">Player ID</label>
+                  <input name='player[ID]' type="text" class="form-control" id="playerDeleteID" placeholder="Enter: Player ID">
+                </div>
+                <button type='submit'>Delete</button>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Created by HolmSolutions</p>
+      </footer>
+    </body>
+</html>
