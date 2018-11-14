@@ -1,3 +1,16 @@
+## Getting Started
+
+# Front-End
+-`NPM Install`
+-`Grunt Server` to spin up client
+
+# Back-End
+-`Bundle Install`
+- .env file to set Secret Tokens
+- need to create Postgresql instance...
+-`bin/rails server` to spin up server
+
+
 ## Links:
 Client Deployment: https://swholm19.github.io/full-stack-tffm-project-client/
 
