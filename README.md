@@ -1,3 +1,28 @@
+## Getting Started
+#### Front-End
+- `NPM Install`
+- `Grunt Server` to spin up client
+
+#### Back-End
+- `Bundle Install`
+- Create `.env` file
+  - SECRET_KEY_BASE_DEVELOPMENT=`bundle exec rails secret`
+  - SECRET_KEY_BASE_TEST=`bundle exec rails secret`
+- Make sure Postgresql installed
+  - run `bin/rails db:create`
+  - run `bin/rails db:migrate`
+- `bin/rails server` to spin up server
+(https://git.generalassemb.ly/ga-wdi-boston/rails-api-template#installation)
+
+## To Deploy
+#### Front-End
+- On `Master` branch run `grunt deploy`
+
+#### Back-End
+- Set up Heroku ... https://git.generalassemb.ly/swholm19/rails-heroku-setup-guide
+- On `Master` branch run `heroku ...`
+
+
 ## Links:
 Client Deployment: https://swholm19.github.io/full-stack-tffm-project-client/
 
