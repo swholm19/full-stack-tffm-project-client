@@ -1,14 +1,26 @@
 ## Getting Started
-
 # Front-End
 -`NPM Install`
 -`Grunt Server` to spin up client
 
 # Back-End
 -`Bundle Install`
-- .env file to set Secret Tokens
-- need to create Postgresql instance...
+- Create `.env` file
+  - SECRET_KEY_BASE_DEVELOPMENT=`bundle exec rails secret`
+  - SECRET_KEY_BASE_TEST=`bundle exec rails secret`
+- Make sure Postgresql installed
+  - run `bin/rails db:create`
+  - run `bin/rails db:migrate`
 -`bin/rails server` to spin up server
+(https://git.generalassemb.ly/ga-wdi-boston/rails-api-template#installation)
+
+## To Deploy
+# Front-End
+- On `Master` branch run `grunt deploy`
+
+# Back-End
+- Set up Heroku ... https://git.generalassemb.ly/swholm19/rails-heroku-setup-guide
+- On `Master` branch run `heroku ...`
 
 
 ## Links:
