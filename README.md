@@ -1,9 +1,9 @@
 ## Getting Started
-# Front-End
+#### Front-End
 -`NPM Install`
 -`Grunt Server` to spin up client
 
-# Back-End
+#### Back-End
 -`Bundle Install`
 - Create `.env` file
   - SECRET_KEY_BASE_DEVELOPMENT=`bundle exec rails secret`
@@ -15,10 +15,10 @@
 (https://git.generalassemb.ly/ga-wdi-boston/rails-api-template#installation)
 
 ## To Deploy
-# Front-End
+#### Front-End
 - On `Master` branch run `grunt deploy`
 
-# Back-End
+#### Back-End
 - Set up Heroku ... https://git.generalassemb.ly/swholm19/rails-heroku-setup-guide
 - On `Master` branch run `heroku ...`
 
